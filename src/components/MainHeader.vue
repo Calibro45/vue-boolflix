@@ -41,11 +41,6 @@ export default {
         .logo {
             width: 150px;
         }
-        
-        img {
-            object-fit: contain;
-            object-position: center;
-        }
     }
 }
 

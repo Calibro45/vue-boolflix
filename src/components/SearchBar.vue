@@ -21,6 +21,8 @@ export default {
         return {
             search: '',
             url: 'https://api.themoviedb.org/3',
+            apiKey: '11a0338b86751aa1750a4d8dbcad1fdc',
+            language: 'it-IT',
         }
     },
 
@@ -32,9 +34,9 @@ export default {
 
                 axios.get(`${this.url}/search/movie`, {
                     params: {
-                        api_key: '11a0338b86751aa1750a4d8dbcad1fdc',
+                        api_key: this.apiKey,
                         query: this.search,
-                        language: 'it-IT',
+                        language: this.language,
                     }
                 })
                 .then( res => {
@@ -48,9 +50,7 @@ export default {
             } 
             state.movies = [];
         },
-    },
-
-    
+    }
 }
 </script>
 

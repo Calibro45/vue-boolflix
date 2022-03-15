@@ -5,6 +5,7 @@ const state = Vue.observable(
     {
         ricerca: '',
         movies: [],
+        series: [],
     }
 )
 
