@@ -20,7 +20,7 @@ export default {
     data() {
         return {
             search: '',
-            url: 'https://api.themoviedb.org/3'
+            url: 'https://api.themoviedb.org/3',
         }
     },
 

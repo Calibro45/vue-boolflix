@@ -1,13 +1,15 @@
 <template>
-    <main>
+    <main id="film">
 
         <ol v-for="movie in movies" :key="movie.id">
-            <li>{{ movie.title }}</li>
-            <li>{{ movie.original_title }}</li>
+            <li>Titolo: {{ movie.title }}</li>
+            <li v-show="(movie.title === movie.original_title) ? false : true ">
+                Titolo Originale: {{ movie.original_title }}
+            </li>
             <li class="languages">
                 <img :src="setLanguage(movie.original_language)" alt="">
             </li>
-            <li>{{ movie.vote_average }}</li>
+            <li>Rating: {{ movie.vote_average }}</li>
         </ol>
 
     </main>
@@ -26,7 +28,7 @@ export default {
                 ita: require('@/assets/img/ita.png'),
                 eng: require('@/assets/img/eng.png'),
             },
-        }
+        };
     },
 
     methods: {
@@ -52,14 +54,19 @@ export default {
 
 <style lang="scss" scoped>
 
-.languages {
-    width: 25px;
-    height: 25px;
+#film {
+    padding: 20px 10px;
 
-    img {
-        object-fit: cover;
-        object-position: center;
+    .languages {
+        width: 25px;
+        height: 25px;
+    
+        img {
+            object-fit: cover;
+            object-position: center;
+        }
     }
 }
+
 
 </style>
