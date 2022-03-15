@@ -2,7 +2,13 @@
     <main>
         
         <searchBar />
-        <p>{{ search }}</p>
+
+        <ol v-for="movie in movies" :key="movie.id">
+            <li>{{ movie.title }}</li>
+            <li>{{ movie.original_title }}</li>
+            <li>{{ movie.original_language }}</li>
+            <li>{{ movie.vote_average }}</li>
+        </ol>
 
     </main>
 </template>
@@ -20,6 +26,9 @@ export default {
     computed: {
         search: function() {
             return state.ricerca;
+        },
+        movies: function(){
+            return state.movies;
         }
     }
 }
