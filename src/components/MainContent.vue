@@ -7,7 +7,7 @@
                 Titolo Originale: {{ movie.original_title }}
             </li>
             <li class="languages">
-                <img :src="setLanguage(movie.original_language)" alt="">
+                <img :src="setLanguage(movie.original_language)" :alt="movie.original_language">
             </li>
             <li>Rating: {{ movie.vote_average }}</li>
         </ol>
@@ -37,7 +37,7 @@ export default {
 
             if (language === 'it') {
                 return this.img.ita;
-            } else {
+            } else if (language === 'en') {
                 return this.img.eng;
             }
         },
