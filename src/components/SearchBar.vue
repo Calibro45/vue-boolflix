@@ -27,21 +27,26 @@ export default {
     methods: {
 
         fetchFilm: function() {
-            axios.get(`${this.url}/search/movie`, {
-                params: {
-                    api_key: '11a0338b86751aa1750a4d8dbcad1fdc',
-                    query: this.search,
-                    language: 'it-IT',
-                }
-            })
-            .then( res => {
-                //console.log(res.data);
-                state.movies = res.data.results;
-                }
-            )
-            .catch( error => {
-                console.log(error.response);
-            })
+
+            if (this.search != '') {
+
+                axios.get(`${this.url}/search/movie`, {
+                    params: {
+                        api_key: '11a0338b86751aa1750a4d8dbcad1fdc',
+                        query: this.search,
+                        language: 'it-IT',
+                    }
+                })
+                .then( res => {
+                    //console.log(res.data);
+                    state.movies = res.data.results;
+                    }
+                )
+                .catch( error => {
+                    console.log(error.response);
+                })
+            } 
+            state.movies = [];
         },
     },
 
