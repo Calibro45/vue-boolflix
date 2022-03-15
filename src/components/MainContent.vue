@@ -1,7 +1,5 @@
 <template>
     <main>
-
-        <h1>Boolflix</h1>
         
         <searchBar />
 
