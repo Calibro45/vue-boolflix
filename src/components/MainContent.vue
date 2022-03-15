@@ -1,7 +1,5 @@
 <template>
     <main>
-        
-        <searchBar />
 
         <ol v-for="movie in movies" :key="movie.id">
             <li>{{ movie.title }}</li>
@@ -17,14 +15,11 @@
 
 <script>
 
-import searchBar from '../components/SearchBar.vue';
 import state from '../store.js';
 
 export default {
     name: 'mainContent',
-    components: {
-        searchBar,
-    },
+
     data() {
         return {
             img: {

@@ -1,8 +1,10 @@
 <template>
     <div>
         
-        <input type="text" name="search" placeholder="Ricerca Film" v-model="search" @keyup="fetchFilm()">
-        <button @click="fetchFilm()">Ricerca</button>
+        <input type="text" name="search" placeholder="Ricerca Film" class="search-bar"
+        v-model="search" @keyup="fetchFilm()">
+        <button class="search-cta"
+        @click="fetchFilm()">Ricerca</button>
 
     </div>
 </template>
@@ -48,5 +50,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+@import '../assets/scss/mixins.scss';
+@import '../assets/scss/variabili.scss';
+
+.search-bar {
+    @include input;
+    font-size: 18px;
+    margin-right: 2px;
+
+    &:focus {
+        outline: 1px solid $color;
+    }
+}
     
+.search-cta {
+    @include button;
+    font-size: 18px;
+    opacity: 0.9;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 1;
+    }
+}
+
 </style>

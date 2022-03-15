@@ -1,0 +1,17 @@
+@import './variabili.scss';
+
+@mixin button {
+    padding: 10px 20px;
+    color: white;
+    background-color: $color;
+    font-weight: 700;
+    border: 1px solid $colorBack;
+    border-radius: 2px;
+}
+
+@mixin input {
+    padding: 10px 20px;
+    border-radius: 2px;
+    max-width: 250px;
+    border: 1px solid $colorBack;
+}
