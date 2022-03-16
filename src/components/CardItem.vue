@@ -11,7 +11,8 @@
             </h3>
         </div>
         <div>
-            <p>{{ element.original_language }}</p>
+            <img :src="flags[element.original_language]" alt="" v-if="flags[element.original_language]">
+            <span v-else>{{ element.original_language }}</span>
             <p>{{ element.vote_average }}</p>
         </div>
 
@@ -31,23 +32,15 @@ export default {
     data() {
         return {
             poster: 'https://image.tmdb.org/t/p/w342',
-            img: {
-                ita: require('@/assets/img/ita.png'),
-                eng: require('@/assets/img/eng.png'),
+            flags: {
+                it: require('@/assets/img/ita.png'),
+                en: require('@/assets/img/eng.png'),
             },
         };
     },
-
     methods: {
-
-        setLanguage: function(language) {
-
-            if (language === 'it') {
-                return this.img.ita;
-            } else if (language === 'en') {
-                return this.img.eng;
-            }
-        },
+        setFlags: function() {
+        }
     },
 }
 
