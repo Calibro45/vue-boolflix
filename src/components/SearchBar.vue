@@ -2,9 +2,9 @@
     <div>
         
         <input type="text" name="search" placeholder="Ricerca Film" class="search-bar"
-        v-model="search" @keyup="fetchFilm()">
+        v-model="search" @keyup="fetchData()">
         <button class="search-cta"
-        @click="fetchFilm()">Ricerca</button>
+        @click="fetchData()">Ricerca</button>
 
     </div>
 </template>
@@ -28,7 +28,7 @@ export default {
 
     methods: {
 
-        fetchFilm: function() {
+        fetchData: function() {
 
             if (this.search != '') {
 
@@ -49,6 +49,24 @@ export default {
                 })
             } 
             state.movies = [];
+
+            if (this.search != '') {
+
+                axios.get(`${this.url}/search/tv`, {
+                    params: {
+                        api_key: this.apiKey,
+                        query: this.search,
+                        language: this.language,
+                    }
+                })
+                .then( res => {
+                    state.series = res.data.results;
+                })
+                .catch( error => {
+                    console.log(error.response);
+                })
+            }
+            state.series = [];
         },
     }
 }

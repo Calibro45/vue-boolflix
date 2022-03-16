@@ -1,7 +1,28 @@
 <template>
-    <main id="film">
+    <main id="main-content">
 
-        <cardItem v-for="movie in movies" :key="movie.id" :element="movie"/>
+        <section id="film">
+
+            <h2>Film</h2>
+
+            <div class="card-wrapper">
+                <cardItem v-for="movie in movies" :key="movie.id" :element="movie"
+                class="card-item"/>
+            </div>
+
+        </section>
+
+        <section id="series">
+
+            <h2>Serie Tv</h2>
+
+            <div class="card-wrapper">
+                <cardItem v-for="serie in series" :key="serie.id" :element="serie"
+                class="card-item"/>
+            </div>
+
+        </section>
+
 
     </main>
 </template>
@@ -21,6 +42,10 @@ export default {
 
         movies: function() {
             return state.movies;
+        },
+
+        series: function() {
+            return state.series;
         }
     }
 }
@@ -29,8 +54,21 @@ export default {
 
 <style lang="scss" scoped>
 
-#film {
+#main-content {
     padding: 20px 10px;
+    
+    #film, #series {
+        
+        .card-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+
+            .card-item {
+                width: calc(100% / 6);
+            }
+        }
+
+    }
 }
 
 </style>
