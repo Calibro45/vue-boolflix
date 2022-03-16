@@ -5,7 +5,6 @@
     
     <mainContent />
 
-
   </div>
 </template>
 
