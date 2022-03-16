@@ -17,8 +17,8 @@
             v-if="flags[element.original_language]">
             <span class="rating" v-else>{{ element.original_language }}</span>
             <p>
-                {{ setVote(element.vote_average) }}
-                <i class="far fa-star" v-for="n in 5" :key="n"></i>
+                <i :class="(n <= setVote(element.vote_average)) ? 'fas fa-star' : 'far fa-star'" 
+                v-for="n in 5" :key="n"></i>
             </p>
         </div>
 
