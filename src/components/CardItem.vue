@@ -2,7 +2,8 @@
     <div class="card-wrap">
         
         <figure class="card-poster">
-            <img :src="poster + element.poster_path">
+            <img v-if="element.poster_path != null" :src="poster + element.poster_path">
+            <img v-else src="https://montagnolirino.it/wp-content/uploads/2015/12/immagine-non-disponibile.png">
         </figure>
 
         <div class="card-body">

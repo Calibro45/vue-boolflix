@@ -3,7 +3,7 @@
 
         <section id="film">
 
-            <h2>Film</h2>
+            <h2 v-if="movies.length > 0">Film</h2>
 
             <div class="card-wrapper">
                 <cardItem v-for="movie in movies" :key="movie.id" :element="movie"
@@ -14,7 +14,7 @@
 
         <section id="series">
 
-            <h2>Serie Tv</h2>
+            <h2 v-if="series.length > 0">Serie Tv</h2>
 
             <div class="card-wrapper">
                 <cardItem v-for="serie in series" :key="serie.id" :element="serie"
