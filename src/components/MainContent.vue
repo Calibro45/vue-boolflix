@@ -72,7 +72,6 @@ export default {
 
             .card-item {
                 width: calc( 95% / 6 );
-                padding: 5px 10px;
             }
         }
     }
