@@ -32,13 +32,8 @@ export default {
 
             if (this.search != '') {
 
-                axios.get(`${this.url}/search/movie`, {
-                    params: {
-                        api_key: this.apiKey,
-                        query: this.search,
-                        language: this.language,
-                    }
-                })
+                this.fetch('movie')
+                
                 .then( res => {
                     //console.log(res.data);
                     state.movies = res.data.results;
@@ -52,13 +47,8 @@ export default {
 
             if (this.search != '') {
 
-                axios.get(`${this.url}/search/tv`, {
-                    params: {
-                        api_key: this.apiKey,
-                        query: this.search,
-                        language: this.language,
-                    }
-                })
+                this.fetch('tv')
+
                 .then( res => {
                     state.series = res.data.results;
                 })
@@ -68,7 +58,17 @@ export default {
             }
             state.series = [];
         },
-    }
+
+        fetch: function(type) {
+            return axios.get(`${this.url}/search/${type}`, {
+                params: {
+                    api_key: this.apiKey,
+                    query: this.search,
+                    language: this.language,
+                }
+            })
+        },
+    },
 }
 </script>
 

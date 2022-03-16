@@ -54,20 +54,27 @@ export default {
 
 <style lang="scss" scoped>
 
+@import '../assets/scss/variabili.scss';
+
 #main-content {
     padding: 20px 10px;
+    background-color: rgba($colorBack, 0.9);
+    flex-grow: 1;overflow-x: hidden;
+    overflow-y: scroll;
+
     
     #film, #series {
         
         .card-wrapper {
             display: flex;
             flex-wrap: wrap;
+            gap: 20px 1%;
 
             .card-item {
-                width: calc(100% / 6);
+                width: calc( 95% / 6 );
+                padding: 5px 10px;
             }
         }
-
     }
 }
 
