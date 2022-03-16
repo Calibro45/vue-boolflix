@@ -16,7 +16,7 @@
             <img :src="flags[element.original_language]" class="flags"
             v-if="flags[element.original_language]">
             <span class="rating" v-else>{{ element.original_language }}</span>
-            <p>{{ element.vote_average }}</p>
+            <p>{{ setVote(element.vote_average) }}</p>
         </div>
 
     </div>
@@ -41,6 +41,12 @@ export default {
             },
         };
     },
+    methods: {
+        setVote: function(voto) {
+            const rating = voto / 2;
+            return Math.round(rating);
+        }
+    }
 }
 
 </script>
