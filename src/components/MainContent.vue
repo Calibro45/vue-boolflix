@@ -55,6 +55,7 @@ export default {
 <style lang="scss" scoped>
 
 @import '../assets/scss/variabili.scss';
+@import '../assets/scss/mixins.scss';
 
 #main-content {
     padding: 20px 10px;
@@ -74,6 +75,90 @@ export default {
                 width: calc( 95% / 6 );
             }
         }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    #main-content {
+
+        #film, #series {
+            
+            .card-wrapper {
+    
+                .card-item {
+                    @include cardXl;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    #main-content {
+
+        #film, #series {
+            
+            .card-wrapper {
+                gap: 20px 1%;
+    
+                .card-item {
+                    @include cardLg;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    #main-content {
+
+        #film, #series {
+           
+           .card-wrapper {
+               gap: $gapCard;
+   
+               .card-item {
+                   @include cardMd;
+               }
+           }
+       }
+    }
+}
+
+@media screen and (max-width: 576px) {
+
+    #main-content {
+
+        #film, #series {
+           
+           .card-wrapper {
+               gap: $gapCard;
+   
+               .card-item {
+                   @include cardSm;
+               }
+           }
+       }
+    }
+}
+
+@media screen and (max-width: 420px) {
+
+    #main-content {
+
+        #film, #series {
+           
+           .card-wrapper {
+               gap: $gapCard;
+   
+               .card-item {
+                   @include cardXs;
+               }
+           }
+       }
     }
 }
 

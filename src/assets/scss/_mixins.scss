@@ -16,3 +16,22 @@
     border: 1px solid $colorBack;
 }
 
+@mixin cardXl {
+    width: calc( 96% / 5 );
+}
+
+@mixin cardLg {
+    width: calc( 97% / 4 );
+}
+
+@mixin cardMd {
+    width: calc( 96% / 3 );
+}
+
+@mixin cardSm {
+    width: calc( 98% / 2 );
+}
+
+@mixin cardXs {
+    width: 98%;
+}

@@ -46,6 +46,10 @@ export default {
             flags: {
                 it: require('@/assets/img/ita.png'),
                 en: require('@/assets/img/eng.png'),
+                de: require('@/assets/img/de.png'),
+                es: require('@/assets/img/es.png'),
+                fr: require('@/assets/img/fr.png'),
+                cn: require('@/assets/img/cn.png'),
             },
         };
     },
@@ -74,6 +78,8 @@ export default {
     position: relative;
     display: flex;
     flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
 
     &::after {
         display: none;
