@@ -2,8 +2,7 @@
     <div class="card-wrap">
         
         <figure class="card-header">
-            <img v-if="element.poster_path != null" :src="poster + element.poster_path">
-            <img v-else src="https://montagnolirino.it/wp-content/uploads/2015/12/immagine-non-disponibile.png">
+            <img :src="img">
         </figure>
 
         <div class="card-body">
@@ -43,6 +42,7 @@ export default {
     data() {
         return {
             poster: 'https://image.tmdb.org/t/p/w342/',
+            posterNull: 'https://montagnolirino.it/wp-content/uploads/2015/12/immagine-non-disponibile.png',
             flags: {
                 it: require('@/assets/img/ita.png'),
                 en: require('@/assets/img/eng.png'),
@@ -54,7 +54,16 @@ export default {
             const rating = voto / 2;
             return Math.round(rating);
         }
-    }
+    },
+    computed: {
+        img: function() {
+            if(this.element.poster_path != null) {
+                return this.poster + this.element.poster_path;
+            }else {
+                return this.posterNull;
+            }
+        }
+    },
 }
 
 </script>

@@ -3,7 +3,7 @@
 
         <nav class="navbar">
             <figure class="logo">
-                <img src="../assets/img/boolfix.png" alt="">
+                <img src="../assets/img/boolfix.svg" alt="">
             </figure>
 
             <searchBar />
