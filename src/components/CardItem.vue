@@ -17,7 +17,7 @@
             <div class="card-info">
                 <img :src="flags[element.original_language]" class="flags"
                 v-if="flags[element.original_language]">
-                <span class="rating" v-else>{{ element.original_language }}</span>
+                <span v-else>{{ element.original_language }}</span>
                 <p>
                     <i :class="(n <= setVote(element.vote_average)) ? 'fas fa-star' : 'far fa-star'" 
                     v-for="n in 5" :key="n"></i>

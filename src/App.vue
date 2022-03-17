@@ -27,7 +27,6 @@ export default {
 
 @import './assets/scss/common.scss';
 
-
 #app {
   width: 100%;
   height: 100vh;
