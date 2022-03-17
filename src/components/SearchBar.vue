@@ -106,4 +106,12 @@ export default {
     
 }
 
+@media screen and (max-width: 576px) {
+
+    .search-cta {
+        padding: 10px;
+    }
+    
+}
+
 </style>

@@ -52,7 +52,7 @@ export default {
                 'serie tv',
             ],
             activeLink: '',
-            activeMenu: true,
+            activeMenu: false,
         }
     },
     methods: {
