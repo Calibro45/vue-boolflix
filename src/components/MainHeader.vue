@@ -10,8 +10,9 @@
             </figure>
 
             <ol class="nav-link">
-                <li class="" 
-                v-for="(link, i) in links" :key="i">
+                <li :class="activeLink === i ? 'active' : ''" 
+                v-for="(link, i) in links" :key="i"
+                @click="setActive(i)">
                     <a href="#">{{ link }}</a>
                 </li>
             </ol>
@@ -37,9 +38,15 @@ export default {
                 'home',
                 'film',
                 'serie tv',
-            ]
+            ],
+            activeLink: '',
         }
     },
+    methods: {
+        setActive: function(index) {
+            this.activeLink = index;
+        }
+    }
 }
 
 </script>
