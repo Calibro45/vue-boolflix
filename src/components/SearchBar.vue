@@ -98,4 +98,12 @@ export default {
     }
 }
 
+@media screen and (max-width: 576px) {
+
+    .search-bar {
+        max-width: 150px;
+    }
+    
+}
+
 </style>

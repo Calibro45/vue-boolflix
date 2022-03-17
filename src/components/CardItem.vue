@@ -103,6 +103,10 @@ export default {
     .card-header {
         flex-grow: 1;
 
+        img {
+            margin: 0 auto;
+        }
+
     }
 
     .card-body {

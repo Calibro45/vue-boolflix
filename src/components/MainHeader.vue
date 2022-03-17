@@ -6,6 +6,10 @@
                 <img src="../assets/img/boolfix.svg" alt="">
             </figure>
 
+            <figure class="logo-sm">
+                <img src="../assets/img/B.svg" alt="">
+            </figure>
+
             <searchBar />
         </nav>
 
@@ -40,6 +44,30 @@ export default {
         
         .logo {
             width: 150px;
+        }
+
+        .logo-sm {
+            height: 50px;
+            display: none;
+
+            img {
+                aspect-ratio: 1;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+     
+    #navbar {
+        .navbar {
+            .logo {
+                display: none;
+            }
+            
+            .logo-sm {
+                display: block;
+            }
         }
     }
 }
