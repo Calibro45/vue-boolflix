@@ -65,11 +65,18 @@ export default {
 
     
     #film, #series {
+
+        h2 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
         
         .card-wrapper {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px 1%;
+            gap: 30px 1%;
 
             .card-item {
                 width: calc( 95% / 6 );

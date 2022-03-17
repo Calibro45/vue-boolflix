@@ -5,12 +5,18 @@
             <figure class="logo">
                 <img src="../assets/img/boolfix.svg" alt="">
             </figure>
-
-            <figure class="logo-sm">
+             <figure class="logo-sm">
                 <img src="../assets/img/B.svg" alt="">
             </figure>
 
-            <searchBar />
+            <ol class="nav-link">
+                <li class="" 
+                v-for="(link, i) in links" :key="i">
+                    <a href="#">{{ link }}</a>
+                </li>
+            </ol>
+
+            <searchBar class="search_bar"/>
         </nav>
 
     </header>
@@ -24,7 +30,16 @@ export default {
     name: 'mainHeader',
     components: {
         searchBar,
-    }
+    },
+    data() {
+        return {
+            links: [
+                'home',
+                'film',
+                'serie tv',
+            ]
+        }
+    },
 }
 
 </script>
@@ -32,18 +47,46 @@ export default {
 <style lang="scss" scoped>
 
 @import '../assets/scss/variabili.scss';
+@import '../assets/scss/mixins.scss';
 
 #navbar {
     background-color: $colorBack;
 
     .navbar {
         display: flex;
-        justify-content: space-between;
         align-items: center;
         padding: 20px 10px;
+        gap: 25px;
         
         .logo {
             width: 150px;
+        }
+
+        .nav-link {
+            display: contents;
+
+            li {
+                @include navLink;
+                font-size: 14px;
+                padding: 5px 8px;
+
+                &.active a::after {
+                    display: block;
+                }
+
+                a {
+                    position: relative;
+
+                    &::after {
+                        @include linkAfter;
+                        display: none;
+                    }
+
+                    &:hover::after {
+                        @include linkAfter;
+                    }
+                }
+            }
         }
 
         .logo-sm {
@@ -53,6 +96,10 @@ export default {
             img {
                 aspect-ratio: 1;
             }
+        }
+
+        .search_bar {
+            margin-left: auto;
         }
     }
 }
@@ -64,7 +111,7 @@ export default {
             .logo {
                 display: none;
             }
-            
+
             .logo-sm {
                 display: block;
             }

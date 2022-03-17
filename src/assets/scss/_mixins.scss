@@ -16,6 +16,23 @@
     border: 1px solid $colorBack;
 }
 
+@mixin navLink {
+    text-transform: uppercase;
+    font-weight: 700;
+    white-space: nowrap;
+    user-select: none;
+}
+
+@mixin linkAfter {
+    display: block;
+    content: '';
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: $color;
+}
+
 @mixin cardWrap {
     position: relative;
     display: flex;
