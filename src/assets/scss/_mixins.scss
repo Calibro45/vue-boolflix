@@ -33,6 +33,14 @@
     background-color: $color;
 }
 
+@mixin hamburger {
+    display: block;
+    position: absolute;
+    width: 150px;
+    border-radius: 10px;
+    z-index: 9999;
+}
+
 @mixin cardWrap {
     position: relative;
     display: flex;

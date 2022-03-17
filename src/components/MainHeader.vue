@@ -17,6 +17,18 @@
                 </li>
             </ol>
 
+            <div class="hamburger" :class="activeMenu === true ? 'active' : ''">
+                <i class="fas fa-bars"
+                @click="setMenu()"></i>
+                <ol class="nav-link">
+                    <li :class="activeLink === i ? 'active' : ''" 
+                    v-for="(link, i) in links" :key="i"
+                    @click="setActive(i)">
+                        <a href="#">{{ link }}</a>
+                    </li>
+                </ol>
+            </div>
+
             <searchBar class="search_bar"/>
         </nav>
 
@@ -40,13 +52,18 @@ export default {
                 'serie tv',
             ],
             activeLink: '',
+            activeMenu: true,
         }
     },
     methods: {
         setActive: function(index) {
             this.activeLink = index;
+        },
+        setMenu: function() {
+            return this.activeMenu = !this.activeMenu;
         }
-    }
+
+    },
 }
 
 </script>
@@ -58,6 +75,7 @@ export default {
 
 #navbar {
     background-color: $colorBack;
+    position: relative;
 
     .navbar {
         display: flex;
@@ -67,6 +85,15 @@ export default {
         
         .logo {
             width: 150px;
+        }
+
+        .logo-sm {
+            height: 50px;
+            display: none;
+
+            img {
+                aspect-ratio: 1;
+            }
         }
 
         .nav-link {
@@ -96,12 +123,22 @@ export default {
             }
         }
 
-        .logo-sm {
-            height: 50px;
+        .hamburger {
+            font-size: 1.75rem;
+            vertical-align: middle;
             display: none;
 
-            img {
-                aspect-ratio: 1;
+            &.active .nav-link  {
+                @include hamburger;
+                background-color: $colorBack;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            i:hover {
+                color: $color;
             }
         }
 
@@ -109,6 +146,22 @@ export default {
             margin-left: auto;
         }
     }
+}
+
+@media screen and (max-width: 768px) {
+
+    #navbar {
+        .navbar {
+            .nav-link {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+    }
+
 }
 
 @media screen and (max-width: 576px) {
