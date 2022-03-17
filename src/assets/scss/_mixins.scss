@@ -16,6 +16,35 @@
     border: 1px solid $colorBack;
 }
 
+@mixin cardWrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+@mixin cardAfter {
+    display: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.7;
+}
+
+@mixin cardBody {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    padding: 5px 10px;
+    z-index: 1;
+    display: none;
+}
+
 @mixin cardXl {
     width: calc( 96% / 5 );
 }

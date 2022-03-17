@@ -17,9 +17,9 @@
             <div class="card-info">
                 <img :src="flags[element.original_language]" class="flags"
                 v-if="flags[element.original_language]">
-                <span v-else>{{ element.original_language }}</span>
-                <p>
-                    <i :class="(n <= setVote(element.vote_average)) ? 'fas fa-star' : 'far fa-star'" 
+                <span class="language" v-else>{{ element.original_language }}</span>
+                <p class="rating">
+                    <i :class="(n <= setVote(element.vote_average)) ? 'fas fa-star red' : 'far fa-star red'" 
                     v-for="n in 5" :key="n"></i>
                 </p>
             </div>
@@ -74,23 +74,14 @@ export default {
 
 <style lang="scss" scoped>
 
+@import '../assets/scss/variabili.scss';
+@import '../assets/scss/mixins.scss';
+
 .card-wrap {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    border-radius: 8px;
-    overflow: hidden;
+    @include cardWrap;
 
     &::after {
-        display: none;
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: black;
-        opacity: 0.7;
+        @include cardAfter;
     }
 
     &:hover::after,
@@ -106,20 +97,43 @@ export default {
         img {
             margin: 0 auto;
         }
-
     }
 
     .card-body {
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        padding: 5px 10px;
-        z-index: 1;
-        display: none;
+        @include cardBody;
 
-        .flags {
-            height: 30px;
+        .card-description {
+            font-size: 14px;
+            margin-bottom: 0.75rem;
+
+            .title {
+                margin-bottom: 0.5rem;
+            }
         }
+
+        .card-info {
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .flags {
+                height: 30px;
+            }
+
+            .language {
+                text-transform: uppercase;
+            }
+
+            .rating {
+
+                .red {
+                    color: $color;
+                    font-size: 14px;
+                }
+            }
+        }
+
     }
 }
 
