@@ -137,9 +137,14 @@ export default {
                 cursor: pointer;
             }
 
-            i:hover {
-                color: $color;
+            i {
+                vertical-align: middle;
+                
+                &:hover {
+                    color: $color;
+                }
             }
+
         }
 
         .search_bar {

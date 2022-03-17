@@ -68,6 +68,7 @@ export default {
     overflow-x: hidden;
     overflow-y: scroll;
     position: relative;
+    user-select: none;
     
     #film, #series {
 
