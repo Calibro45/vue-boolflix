@@ -1,6 +1,8 @@
 <template>
     <main id="main-content">
 
+        <spinnerIcon v-show="movies.length === 0 || series.length === 0"/>
+
         <section id="film">
 
             <h2 v-if="movies.length > 0">Film</h2>
@@ -31,11 +33,13 @@
 
 import state from '../store.js';
 import cardItem from './CardItem.vue';
+import spinnerIcon from './Spinner.vue';
 
 export default {
     name: 'mainContent',
     components: {
         cardItem,
+        spinnerIcon,
     },
 
     computed: {
@@ -60,9 +64,10 @@ export default {
 #main-content {
     padding: 20px 10px;
     background-color: rgba($colorBack, 0.9);
-    flex-grow: 1;overflow-x: hidden;
+    flex-grow: 1;
+    overflow-x: hidden;
     overflow-y: scroll;
-
+    position: relative;
     
     #film, #series {
 
