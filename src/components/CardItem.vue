@@ -80,6 +80,10 @@ export default {
 .card-wrap {
     @include cardWrap;
 
+    &:hover {
+        filter: drop-shadow(1px 1px 4px #ff1b0d );
+    }
+
     &::after {
         @include cardAfter;
     }
