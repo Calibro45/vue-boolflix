@@ -1,7 +1,7 @@
 <template>
     <div class="card-wrap">
         
-        <figure class="card-header">
+        <figure class="card-header" :class="img === posterNull ? 'no-poster' : ''">
             <img :src="img">
         </figure>
 
@@ -42,7 +42,7 @@ export default {
     data() {
         return {
             poster: 'https://image.tmdb.org/t/p/w342/',
-            posterNull: 'https://montagnolirino.it/wp-content/uploads/2015/12/immagine-non-disponibile.png',
+            posterNull: require('@/assets/img/B.svg'),
             flags: {
                 it: require('@/assets/img/ita.png'),
                 en: require('@/assets/img/eng.png'),
@@ -93,6 +93,16 @@ export default {
 
     .card-header {
         flex-grow: 1;
+
+        &.no-poster {
+            display: flex;
+            align-items: center;
+            background-color: $colorBack;
+
+            img {
+                height: 70px;
+            }
+        }
 
         img {
             margin: 0 auto;
